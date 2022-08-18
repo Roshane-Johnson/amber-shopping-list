@@ -1,0 +1,37 @@
+<h2>Create Shopping Item</h2>
+<form #createForm="ngForm" (submit)="createItem(createForm.value)">
+   <mat-form-field>
+      <input type="text" name="name" matInput ngModel placeholder="Name" />
+   </mat-form-field>
+
+   <mat-form-field>
+      <input
+         type="text"
+         name="category"
+         matInput
+         ngModel
+         placeholder="Category"
+      />
+      <mat-select placeholder="Category" ngModel name="category">
+         <mat-option *ngFor="let category of categories" [value]="category._id">
+            {{ category.name }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input type="number" name="price" matInput ngModel placeholder="Price" />
+   </mat-form-field>
+
+   <mat-form-field>
+      <input
+         type="number"
+         name="quantity"
+         matInput
+         ngModel
+         placeholder="Quantity"
+      />
+   </mat-form-field>
+
+   <button mat-raised-button color="primary">Create</button>
+</form>

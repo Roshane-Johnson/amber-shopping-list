@@ -1,0 +1,10 @@
+form {
+   display: grid;
+   grid-template: auto / repeat(1fr, 2);
+}
+
+h2 {
+   margin-top: 0;
+   padding-top: 0;
+   margin-bottom: 50px;
+}

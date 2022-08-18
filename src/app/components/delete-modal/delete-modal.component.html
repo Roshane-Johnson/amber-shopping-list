@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Delete Shopping Item</h2>
+<mat-dialog-content class="mat-typography">
+   <h3>This action is irreversable</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+   <button mat-button mat-dialog-close>Cancel</button>
+   <button
+      mat-raised-button
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      color="primary"
+      (click)="deleteItem()"
+   >
+      Confirm
+   </button>
+</mat-dialog-actions>

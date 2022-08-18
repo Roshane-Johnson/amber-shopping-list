@@ -1,0 +1,7 @@
+<h2>Create Category</h2>
+<form #createForm="ngForm" (submit)="createCategory(createForm.value)">
+   <mat-form-field>
+      <input type="text" name="name" matInput ngModel placeholder="Name" />
+   </mat-form-field>
+   <button mat-raised-button color="primary">Create</button>
+</form>

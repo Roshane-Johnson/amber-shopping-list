@@ -1,0 +1,72 @@
+<div class="table" *ngIf="listItems.length > 0">
+   <table mat-table [dataSource]="listItems" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+         <th class="form-header--emphasis" mat-header-cell *matHeaderCellDef>
+            ID.
+         </th>
+         <td mat-cell *matCellDef="let element">{{ element._id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+         <th class="form-header--emphasis" mat-header-cell *matHeaderCellDef>
+            Name
+         </th>
+         <td mat-cell *matCellDef="let element">
+            {{ element.name | titlecase }}
+         </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+         <th class="form-header--emphasis" mat-header-cell *matHeaderCellDef>
+            Category
+         </th>
+         <td mat-cell *matCellDef="let element">
+            {{ element.category.name | titlecase }}
+         </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+         <th class="form-header--emphasis" mat-header-cell *matHeaderCellDef>
+            Price
+         </th>
+         <td mat-cell *matCellDef="let element">
+            {{ element.price | currencyi: "JMD" }}
+         </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+         <th class="form-header--emphasis" mat-header-cell *matHeaderCellDef>
+            Quantity
+         </th>
+         <td mat-cell *matCellDef="let element">
+            {{ element.quantity | number }}
+         </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+         <th class="form-header--emphasis" mat-header-cell *matHeaderCellDef>
+            Actions
+         </th>
+         <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="openDeleteModal(element)">
+               <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openEditModal(element)">
+               <mat-icon>edit</mat-icon>
+            </button>
+         </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+   </table>
+</div>
+
+<section class="empty-section" *ngIf="listItems.length <= 0">
+   <div class="empty-section content">
+      <div class="mat-icon-wrapper">
+         <mat-icon>info</mat-icon>
+      </div>
+      <h2>No results found</h2>
+   </div>
+</section>
